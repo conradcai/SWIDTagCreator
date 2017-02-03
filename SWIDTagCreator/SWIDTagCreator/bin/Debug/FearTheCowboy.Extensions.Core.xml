@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FearTheCowboy.Extensions.Core</name>
+    </assembly>
+    <members>
+        <member name="T:FearTheCowboy.Extensions.Core.Comparer`1">
+            <summary>
+                A generic implementation of a IComparer that takes a delegate to compare with
+            </summary>
+            <typeparam name="T"> </typeparam>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="F:FearTheCowboy.Extensions.Core.Comparer`1._compareFuction">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:FearTheCowboy.Extensions.Core.Comparer`1.#ctor(System.Func{`0,`0,System.Int32})">
+            <summary>
+                Initializes a new instance of the <see cref="T:FearTheCowboy.Extensions.Core.Comparer`1" /> class.
+            </summary>
+            <param name="compareFn"> The compare fn. </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:FearTheCowboy.Extensions.Core.Comparer`1.Compare(`0,`0)">
+            <summary>
+                Compares two objects and returns a value indicating whether one is less than, equal to, or greater than the other.
+            </summary>
+            <param name="x"> The first object to compare. </param>
+            <param name="y"> The second object to compare. </param>
+            <returns>
+                Value Condition Less than zero <paramref name="x" /> is less than <paramref name="y" /> . Zero
+                <paramref
+                    name="x" />
+                equals <paramref name="y" /> . Greater than zero <paramref name="x" /> is greater than <paramref name="y" /> .
+            </returns>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="T:FearTheCowboy.Extensions.Core.EqualityComparer`1">
+            <summary>
+                A generic implementation of a IEqualityComparer that takes a delegate to compare with
+            </summary>
+            <typeparam name="T"> </typeparam>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="F:FearTheCowboy.Extensions.Core.EqualityComparer`1._equalityCompareFn">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:FearTheCowboy.Extensions.Core.EqualityComparer`1._getHashCodeFn">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:FearTheCowboy.Extensions.Core.EqualityComparer`1.#ctor(System.Func{`0,`0,System.Boolean},System.Func{`0,System.Int32})">
+            <summary>
+                Initializes a new instance of the <see cref="T:FearTheCowboy.Extensions.Core.EqualityComparer`1" /> class.
+            </summary>
+            <param name="equalityCompareFn"> The equality compare fn. </param>
+            <param name="getHashCodeFn"> The get hash code fn. </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:FearTheCowboy.Extensions.Core.EqualityComparer`1.Equals(`0,`0)">
+            <summary>
+                Determines whether the specified objects are equal.
+            </summary>
+            <param name="x">
+                The first object of type <paramref name="x" /> to compare.
+            </param>
+            <param name="y">
+                The second object of type <paramref name="y" /> to compare.
+            </param>
+            <returns> true if the specified objects are equal; otherwise, false. </returns>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:FearTheCowboy.Extensions.Core.EqualityComparer`1.GetHashCode(`0)">
+            <summary>
+                Returns a hash code for this instance.
+            </summary>
+            <param name="obj">
+                The <see cref="T:System.Object" /> for which a hash code is to be returned.
+            </param>
+            <returns> A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. </returns>
+            <exception cref="T:System.ArgumentNullException">
+                The type of
+                <paramref name="obj" />
+                is a reference type and
+                <paramref name="obj" />
+                is null.
+            </exception>
+            <remarks>
+            </remarks>
+        </member>
+    </members>
+</doc>

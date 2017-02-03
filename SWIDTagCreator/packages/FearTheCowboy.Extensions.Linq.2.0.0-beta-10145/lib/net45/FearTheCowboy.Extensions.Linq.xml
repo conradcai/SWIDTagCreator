@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FearTheCowboy.Extensions.Linq</name>
+    </assembly>
+    <members>
+        <member name="M:FearTheCowboy.Extensions.Linq.Extensions.ReEnumerable``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                Returns a ReEnumerable wrapper around the collection which timidly (cautiously) pulls items
+                but still allows you to to re-enumerate without re-running the query.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FearTheCowboy.Extensions.Linq.Extensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+                Determines whether the collection object is either null or an empty collection.
+            </summary>
+            <typeparam name="T"> </typeparam>
+            <param name="collection"> The collection. </param>
+            <returns>
+                <c>true</c> if [is null or empty] [the specified collection]; otherwise, <c>false</c> .
+            </returns>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:FearTheCowboy.Extensions.Linq.Extensions.ConcatSingleItem``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+                Concatenates a single item to an IEnumerable
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FearTheCowboy.Extensions.Linq.Extensions.IndexWhere``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Boolean})">
+            <summary>
+                returns the index position where the predicate matches the value
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FearTheCowboy.Extensions.Linq.Extensions.IndexWhere``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+                returns the index position where the predicate matches the value
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FearTheCowboy.Extensions.Linq.ReEnumerable`1">
+            <summary>
+                A Enumerable wrapper that optimistically caches elements when enumerated
+                Permits the re-enumeration without re-running the original query.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:FearTheCowboy.Extensions.Linq.ReEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            </summary>
+            <param name="source"></param>
+        </member>
+        <member name="M:FearTheCowboy.Extensions.Linq.ReEnumerable`1.#ctor(System.Collections.Generic.IEnumerator{`0})">
+            <summary>
+            </summary>
+            <param name="sourceIterator"></param>
+        </member>
+        <member name="P:FearTheCowboy.Extensions.Linq.ReEnumerable`1.Item(System.Int32)">
+            <summary>
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="P:FearTheCowboy.Extensions.Linq.ReEnumerable`1.Count">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:FearTheCowboy.Extensions.Linq.ReEnumerable`1.ItemExists(System.Int32)">
+            <summary>
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FearTheCowboy.Extensions.Linq.ReEnumerable`1.Concat(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            </summary>
+            <param name="additionalItems"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

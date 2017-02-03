@@ -1,0 +1,562 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FearTheCowboy.Iso19770</name>
+    </assembly>
+    <members>
+        <member name="P:FearTheCowboy.Iso19770.AttributeIndexer.Item(System.Xml.Linq.XName)">
+            <summary>
+                Returns the string value of a given attribute.
+            </summary>
+            <param name="key"></param>
+            <returns>the string value of a given attribute. If the attribute does not exist, returns null.</returns>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.AttributeIndexer.Keys">
+            <summary>
+                An enumeration of all the attributes in this element.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.AttributeIndexer.Values">
+            <summary>
+                An enumeration of all the attribute values in this element.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.AttributeIndexer.Count">
+            <summary>
+                The count of the attributes in this element
+            </summary>
+        </member>
+        <member name="T:FearTheCowboy.Iso19770.BaseElement">
+            <summary>
+                The base element that is common to all elements in a Swidtag.
+                Swidtag classes are intended to be constructed, but are not mutatable
+                (ie, can't be created and have values modified or removed)
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.BaseElement.XmlLang">
+            <summary>
+                All Swidtag elements can explicity support the xml:lang attribute.
+            </summary>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.BaseElement.GetAttribute(System.Xml.Linq.XName)">
+            <summary>
+                Internal method to gain access to attributes.
+                Returns Null if the attribute is not present.
+            </summary>
+            <param name="attribute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.BaseElement.SetAttribute(System.Xml.Linq.XName,System.String)">
+            <summary>
+                Adds an attribute to this element.
+            </summary>
+            <param name="attribute">name of the attribute</param>
+            <param name="value">value of the attribute</param>
+            <returns>The current element (enables fluent usage)</returns>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.BaseElement.AddElement``1(``0)">
+            <summary>
+                Adds a new element as a child to the current element
+            </summary>
+            <param name="swidElement">the swid element to add</param>
+            <returns>The newly added element</returns>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.BaseElement.ContainsKey(System.Xml.Linq.XName)">
+            <summary>
+                Checks if the element contains an attribute with the given key
+            </summary>
+            <param name="key">the key to find</param>
+            <returns>True if the element contains the key.</returns>
+        </member>
+        <member name="T:FearTheCowboy.Iso19770.Directory">
+            <summary>
+                Provides the ability to apply a directory structure to the files
+                defined in a Payload or Evidence element.
+                A Directory element allows files or directories to be
+                defined in the file structure.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Directory.Directories">
+            <summary>
+                An enumeration of the child directories in the element.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Directory.Files">
+            <summary>
+                An enumeration of the Files contained in the element
+            </summary>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.Directory.AddDirectory(System.String)">
+            <summary>
+                Adds a child directory element.
+            </summary>
+            <returns>The newly created directory element</returns>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.Directory.AddFile(System.String)">
+            <summary>
+                Adds a file element.
+            </summary>
+            <returns>The newly created file element</returns>
+        </member>
+        <member name="T:FearTheCowboy.Iso19770.Entity">
+            <summary>
+                From the schema:
+                Specifies the organizations related to the software component
+                referenced by this SWID tag.
+                This has a minOccurs of 1 because the spec declares that
+                you must have at least a Entity with role='tagCreator'
+            </summary>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.Entity.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+                Construct an Entity object tied to an existing element in a document
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Entity.Name">
+            <summary>
+                The name of the organization claiming a particular role in the SWIDtag.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Entity.Roles">
+            <summary>
+                An enumeration of the Roles for a given entity.
+                From the schema:
+                The relationship between this organization and this tag e.g. tag,
+                softwareCreator, licensor, tagCreator, etc.  The role of
+                tagCreator is required for every SWID tag.
+                Role may include any role value, but the pre-defined roles
+                include: aggregator, distributor, licensor, softwareCreator,
+                tagCreator
+                Other roles will be defined as the market uses the SWID tags.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Entity.Thumbprint">
+            <summary>
+                this value provides a hexadecimal string that contains a hash
+                (or thumbprint) of the signing entities certificate.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Entity.RegId">
+            <summary>
+                The regid of the organization.  If the regid is unknown, the
+                value "invalid.unavailable" is assumed by default (see
+                RFC 6761 for more details on the default value).
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Entity.Meta">
+            <summary>
+                An enumeration of nested metadata for the Entity
+            </summary>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.Entity.AddRole(System.String)">
+            <summary>
+                adds a role to the element.
+            </summary>
+            <param name="role">the role to add</param>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.Entity.AddMeta">
+            <summary>
+                Adds a nested metadata element to the entity.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FearTheCowboy.Iso19770.Evidence">
+            <summary>
+                From the schema:
+                The element is used to provide results from a scan of a system
+                where software that does not have a SWID tag is discovered.
+                This information is not provided by the software creator, and
+                is instead created when a system is being scanned and the
+                evidence for why software is believed to be installed on the
+                device is provided in the Evidence element.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Evidence.Date">
+            <summary>
+                Date the evidence was gathered.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Evidence.DeviceId">
+            <summary>
+                Identifier for the device the evidence was gathered from.
+            </summary>
+        </member>
+        <member name="T:FearTheCowboy.Iso19770.File">
+            <summary>
+                Represents an individual file
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.File.Size">
+            <summary>
+                From the swidtag schema:
+                The file size in bytes of the file
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.File.Version">
+            <summary>
+                From the swidtag schema:
+                The file version
+            </summary>
+        </member>
+        <member name="T:FearTheCowboy.Iso19770.FilesystemItem">
+            <summary>
+                Represents an individual file or directory.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.FilesystemItem.IsKey">
+            <summary>
+                From the swidtag schema:
+                Files that are considered important or required for the use of
+                a software component.  Typical key files would be those which,
+                if not available on a system, would cause the software not to
+                execute.
+                Key files will typically be used to validate that software
+                referenced by the SWID tag is actually installed on a specific
+                computing device
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.FilesystemItem.Location">
+            <summary>
+                From the swidtag schema:
+                The directory or location where a file was found or can expected
+                to be located.  does not include the filename itself.  This can
+                be relative path from the 'root' attribute.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.FilesystemItem.Name">
+            <summary>
+                From the swidtag schema:
+                The filename without any path characters
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.FilesystemItem.Root">
+            <summary>
+                From the swidtag schema:
+                A system-specific root folder that the 'location'
+                attribute is an offset from. If this is not specified
+                the assumption is the 'root' is the same folder as
+                the location of the SWIDTAG.
+            </summary>
+        </member>
+        <member name="T:FearTheCowboy.Iso19770.Link">
+            <summary>
+                From the schema:
+                A reference to any another item (can include details that are
+                related to the SWID tag such as details on where software
+                downloads can be found, vulnerability database associations,
+                use rights, etc).
+                This is modeled directly to match the HTML [LINK] element; it is
+                critical for streamlining software discovery scenarios that
+                these are kept consistent.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Link.Artifact">
+            <summary>
+                For installation media (rel="installationmedia") - dictates the
+                canonical name for the file.
+                Items with the same artifact name should be considered mirrors
+                of each other (so download from wherever works).
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Link.HRef">
+            <summary>
+                From the schema:
+                The link to the item being referenced.
+                The href can point to several different things, and can be any
+                of the following:
+                - a RELATIVE URI (no scheme) - which is interpreted depending on
+                context (ie, "./folder/supplemental.swidtag" )
+                - a physical file location with any system-acceptable
+                URI scheme (ie, file:// http:// https:// ftp:// ... etc )
+                - an URI with "swid:" as the scheme, which refers to another
+                swid by tagId. This URI would need to be resolved in the
+                context of the system by software that can lookup other
+                swidtags.( ie, "swid:2df9de35-0aff-4a86-ace6-f7dddd1ade4c" )
+                - an URI with "swidpath:" as the scheme, which refers to another
+                swid by an XPATH query.  This URI would need to be resolved in
+                the context of the system by software that can lookup other
+                swidtags, and select the appropriate one based on an XPATH
+                query. Examples:
+                swidpath://SoftwareIdentity[Entity/@regid='http://contoso.com']
+                would retrieve all swidtags that had an entity where the
+                regid was Contoso
+                swidpath://SoftwareIdentity[Meta/@persistentId='b0c55172-38e9-4e36-be86-92206ad8eddb']
+                would retrieve swidtags that matched a specific persistentId
+                See XPATH query standard : http://www.w3.org/TR/xpath20/
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Link.Media">
+            <summary>
+                An attribute defined by the W3C Media Queries Recommendation
+                (see http://www.w3.org/TR/css3-mediaqueries/).
+                A hint to the consumer of the link to what the target item is
+                applicable for.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Link.Ownership">
+            <summary>
+                Determines the relative strength of ownership of the target piece of software.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Link.Relationship">
+            <summary>
+                The relationship between this SWID and the target file.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Link.MediaType">
+            <summary>
+                The IANA MediaType for the target file; this provides the consumer
+                with intelligence of what to expect.
+                See http://www.iana.org/assignments/media-types/media-types.xhtml
+                for more details on link type.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Link.Use">
+            <summary>
+                Determines if the target software is a hard requirement or not
+            </summary>
+        </member>
+        <member name="T:FearTheCowboy.Iso19770.Meta">
+            <summary>
+                An intermediate base class for elements in the swidtag that support
+                arbitrary attributes in the default namespace.
+                From the swidtag schema:
+                An open-ended collection of key/value data related to this SWID.
+                Permits any user-defined attributes in Meta tags
+            </summary>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.Meta.ContainsKey(System.String)">
+            <summary>
+                Determines if the element contains an attribute with the given name.
+            </summary>
+            <param name="key">the attribute to find</param>
+            <returns>True, if the element contains the attribute.</returns>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.MetadataIndexer.Item(System.String)">
+            <summary>
+                Returns the string value of a given attribute.
+            </summary>
+            <param name="key"></param>
+            <returns>the string value of a given attribute. If the attribute does not exist, returns null.</returns>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.MetadataIndexer.Keys">
+            <summary>
+                An enumeration of all the attributes in this element.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.MetadataIndexer.Values">
+            <summary>
+                An enumeration of all the attribute values in this element.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.MetadataIndexer.Count">
+            <summary>
+                The count of the attributes in this element
+            </summary>
+        </member>
+        <member name="T:FearTheCowboy.Iso19770.Payload">
+            <summary>
+                From the schema:
+                The items that may be installed on a device when the software is
+                installed.  Note that Payload may be a superset of the items
+                installed and, depending on optimization systems for a device,
+                may or may not include every item that could be created or
+                executed on a device when software is installed.
+                In general, payload will be used to indicate the files that
+                may be installed with a software product and will often be a
+                superset of those files (i.e. if a particular optional
+                component is not installed, the files associated with that
+                component may be included in payload, but not installed on
+                the device).
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Process.Name">
+            <summary>
+                From the swidtag schema:
+                The process name as it will be found in the devices process table.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Process.Pid">
+            <summary>
+                From the swidtag schema:
+                The file size in bytes of the file
+            </summary>
+        </member>
+        <member name="T:FearTheCowboy.Iso19770.Resource">
+            <summary>
+                Specifies an arbitrary or custom resource in a swidtag.
+                From the swidtag schema:
+                A element that can be used to provide arbitrary resource
+                information about an application installed on a device, or
+                evidence collected from a device.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Resource.Type">
+            <summary>
+                Specifies the what type of a resource is being recorded.
+                From the swidtag schema:
+                The type of resource (ie, registrykey, port, rootUrl,etc..)
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.ResourceCollection.Directories">
+            <summary>
+                An enumeration of the child directories in the element.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.ResourceCollection.Files">
+            <summary>
+                An enumeration of the Files contained in the element
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.ResourceCollection.Processes">
+            <summary>
+                An enumeration of the Process elements in the element.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.ResourceCollection.Resources">
+            <summary>
+                An enumeration of the resource elements in the element.
+            </summary>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.ResourceCollection.AddDirectory(System.String)">
+            <summary>
+                Adds a child directory element.
+            </summary>
+            <returns>The newly created directory element</returns>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.ResourceCollection.AddFile(System.String)">
+            <summary>
+                Adds a file element.
+            </summary>
+            <returns>The newly created file element</returns>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.ResourceCollection.AddProcess(System.String)">
+            <summary>
+                Adds a new Process element to the element
+            </summary>
+            <returns>the newly created process element</returns>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.ResourceCollection.AddResource(System.String)">
+            <summary>
+                Adds a new Resource element to the element
+            </summary>
+            <returns>the newly created Resource element</returns>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.SoftwareIdentity.Payload">
+            <summary>
+                A ResourceCollection for the 'Payload' of the SwidTag.
+                This value is null if the swidtag does not contain a Payload element.
+                from swidtag XSD:
+                The items that may be installed on a device when the software is
+                installed.  Note that Payload may be a superset of the items
+                installed and, depending on optimization systems for a device,
+                may or may not include every item that could be created or
+                executed on a device when software is installed.
+                In general, payload will be used to indicate the files that
+                may be installed with a software product and will often be a
+                superset of those files (i.e. if a particular optional
+                component is not installed, the files associated with that
+                component may be included in payload, but not installed on
+                the device).
+            </summary>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.SoftwareIdentity.AddPayload">
+            <summary>
+                Adds a Payload resource collection element.
+            </summary>
+            <returns>The ResourceCollection added. If the Payload already exists, returns the current Payload.</returns>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.SoftwareIdentity.Evidence">
+            <summary>
+                An Evidence element representing the discovered for a swidtag.
+                This value is null if the swidtag does not contain an Evidence element
+                from swidtag XSD:
+                The element is used to provide results from a scan of a system
+                where software that does not have a SWID tag is discovered.
+                This information is not provided by the software creator, and
+                is instead created when a system is being scanned and the
+                evidence for why software is believed to be installed on the
+                device is provided in the Evidence element.
+            </summary>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.SoftwareIdentity.AddEvidence">
+            <summary>
+                Adds an Evidence element.
+            </summary>
+            <returns>The added Evidence element. If the Evidence element already exists, returns the current element.</returns>
+        </member>
+        <member name="T:FearTheCowboy.Iso19770.Resources.Resources">
+            <summary>
+               A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Resources.Resources.ResourceManager">
+            <summary>
+               Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Resources.Resources.Culture">
+            <summary>
+               Overrides the current thread's CurrentUICulture property for all
+               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Resources.Resources.Discovery">
+             <summary>
+                Looks up a localized string similar to  &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+            
+            &lt;xs:schema
+              xmlns=&quot;http://packagemanagement.org/discovery&quot;
+              targetNamespace=&quot;http://packagemanagement.org/discovery&quot;
+            
+              xmlns:swid=&quot;http://standards.iso.org/iso/19770/-2/2015/schema.xsd&quot;
+              xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+              xmlns:ds=&quot;http://www.w3.org/2000/09/xmldsig#&quot;
+              xmlns:xml=&quot;http://www.w3.org/XML/1998/namespace&quot;
+              elementFormDefault=&quot;qualified&quot;&gt;
+            
+              &lt;xs:annotation&gt;
+                &lt;xs:documentation&gt;
+                  Schema for Software Discovery via swidtag  [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:FearTheCowboy.Iso19770.Resources.Resources.Swidtag">
+             <summary>
+                Looks up a localized string similar to  &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+            
+            &lt;xs:schema
+              xmlns=&quot;http://standards.iso.org/iso/19770/-2/2015/schema.xsd&quot;
+              xmlns:swid=&quot;http://standards.iso.org/iso/19770/-2/2015/schema.xsd&quot;
+              xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+              xmlns:ds=&quot;http://www.w3.org/2000/09/xmldsig#&quot;
+              xmlns:xml=&quot;http://www.w3.org/XML/1998/namespace&quot;
+            
+              targetNamespace=&quot;http://standards.iso.org/iso/19770/-2/2015/schema.xsd&quot;
+              elementFormDefault=&quot;qualified&quot;&gt;
+            
+              &lt;xs:import
+                namespace=&quot;http://www.w3.org/2000/09/xmldsi [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.Utility.XmlExtensions.GetAttribute(System.Xml.Linq.XElement,System.Xml.Linq.XName)">
+            <summary>
+                Gets the attribute value for a given element.
+            </summary>
+            <param name="element">the element that possesses the attribute</param>
+            <param name="attribute">the attribute to find</param>
+            <returns>the string value of the element. Returns null if the element or attribute does not exist.</returns>
+        </member>
+        <member name="M:FearTheCowboy.Iso19770.Utility.XmlExtensions.SetAttribute(System.Xml.Linq.XElement,System.Xml.Linq.XName,System.String)">
+            <summary>
+                Adds a new attribute to the element
+                Does not permit modification of an existing attribute.
+                Does not add empty or null attributes or values.
+            </summary>
+            <param name="element">The element to add the attribute to</param>
+            <param name="attribute">The attribute to add</param>
+            <param name="value">the value of the attribute to add</param>
+            <returns>The element passed in. (Permits fluent usage)</returns>
+        </member>
+    </members>
+</doc>
