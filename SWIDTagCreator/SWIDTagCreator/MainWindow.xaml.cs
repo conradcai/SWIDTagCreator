@@ -80,6 +80,62 @@ namespace WpfApplication2
             tb_tagId.Text = Guid.NewGuid().ToString();
         }
 
+        private void btnFileOpen_Click(object sender, RoutedEventArgs e)
+        {
+            // Create OpenFileDialog 
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".swidtag";
+            dlg.Filter = "SWID Tag Files (*.swidtag)|*.swidtag |All Files (*.*)|*.*";
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                // Open document 
+                string filename = dlg.FileName;
+
+                // Read text into string
+                string XMLData = System.IO.File.ReadAllText(filename);
+
+                // Parse the Text into a SWID Tag
+                var openTag = SoftwareIdentity.LoadXml(XMLData);
+
+                tb_entityName.Text = openTag.Name;
+                tb_version.Text = openTag.Version;
+                cb_versionScheme.Text = openTag.VersionScheme;
+                tb_tagId.Text = openTag.TagId;
+                
+                //foreach (var child in openTag.Meta.GetEnumerator())
+                //{
+                //    Console.WriteLine(child.Name);
+                //}
+                //tb_edition = openTag.Meta;
+
+
+
+
+                //firstTag.AddMeta().Edition = tb_edition.Text;
+
+                //string roles = "";
+                //string tagToWrite = "";
+
+                //if ((bool)tbtn_tagCreator.IsChecked)
+                //    roles = "tagcreator";
+                //if ((bool)tbtn_softwareCreator.IsChecked)
+                //    roles = roles + " softwarecreator";
+                //if ((bool)tbtn_licensor.IsChecked)
+                //    roles = roles + " licensor";
+
+
+                //firstTag.AddEntity(tb_entityName.Text, tb_entityRegid.Text, roles);
+
+            }
+
+
+        }
     }
 }
