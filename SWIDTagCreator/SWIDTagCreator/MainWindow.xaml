@@ -11,19 +11,19 @@
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Open" Click="btnFileOpen_Click"/>
-                    <MenuItem Header="_Close"/>
-                    <MenuItem Header="_Save"/>
+                    <MenuItem Header="_Save" Click="saveTag_Click"/>
+                    <MenuItem Header="E_xit" Click="exit_Click"/>
                 </MenuItem>
             </Menu>
             <StackPanel></StackPanel>
         </DockPanel>
         <Label x:Name="label" Content="Name" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.016,0.173"/>
-        <TextBox x:Name="tb_name" HorizontalAlignment="Left" Height="23" Margin="78,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tb_prdName" HorizontalAlignment="Left" Height="23" Margin="78,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label1" Content="Edition" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tb_edition" HorizontalAlignment="Left" Height="23" Margin="78,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.179,-0.441"/>
         <Label x:Name="VersionL" Content="Version" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tb_version" HorizontalAlignment="Left" Height="23" Margin="78,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <Button x:Name="btnCreate" Content="Create SWID" HorizontalAlignment="Left" Margin="389,388,0,0" VerticalAlignment="Top" Width="75" Click="btnCreate_Click" IsDefault="True"/>
+        <Button x:Name="btnCreate" Content="Create SWID" HorizontalAlignment="Left" Margin="389,388,0,0" VerticalAlignment="Top" Width="75" Click="saveTag_Click" IsDefault="True"/>
         <Label x:Name="label2" Content="Version Scheme" HorizontalAlignment="Left" Margin="216,93,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cb_versionScheme" HorizontalAlignment="Left" Margin="315,96,0,0" VerticalAlignment="Top" Width="149" SelectedIndex="2">
             <ComboBoxItem Content="decimal"/>
@@ -48,7 +48,7 @@
                 <CheckBox x:Name="tbtn_softwareCreator" Content="softwareCreator" HorizontalAlignment="Left" Margin="296,28,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="tbtn_licensor" Content="licensor" HorizontalAlignment="Left" Margin="296,50,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label7" Content="Other roles" HorizontalAlignment="Left" Margin="218,68,0,0" VerticalAlignment="Top"/>
-                <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="71" Margin="296,70,0,0" VerticalAlignment="Top" Width="149" >
+                <ListBox x:Name="lb_roles" HorizontalAlignment="Left" SelectionMode="Extended" Height="71" Margin="296,70,0,0" VerticalAlignment="Top" Width="149" >
                     <ListBoxItem Content="aggregator"/>
                     <ListBoxItem Content="distributor"/>
                 </ListBox>

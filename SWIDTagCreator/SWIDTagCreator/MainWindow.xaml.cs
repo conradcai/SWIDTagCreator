@@ -33,21 +33,26 @@ namespace WpfApplication2
         {
             InitializeComponent();
         }
-        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        private void saveTag_Click(object sender, RoutedEventArgs e)
         {
-            var firstTag = new SoftwareIdentity();
+            var swidTag = new SoftwareIdentity();
 
-            firstTag.AddMeta().Generator = "TagVault.org Tag Creator";
+            swidTag.AddMeta().Generator = "TagVault.org Tag Creator";
 
-            firstTag.Name = tb_name.Text;
-            firstTag.Version = tb_version.Text;
-            firstTag.VersionScheme = cb_versionScheme.Text;
-            firstTag.TagId = tb_tagId.Text;
-            firstTag.AddMeta().Edition = tb_edition.Text;
+            swidTag.Name = tb_prdName.Text;
+            swidTag.Version = tb_version.Text;
+            swidTag.VersionScheme = cb_versionScheme.Text;
+            swidTag.TagId = tb_tagId.Text;
+            swidTag.AddMeta().Edition = tb_edition.Text;
 
-            string roles = "";
             string tagToWrite = "";
 
+            //
+            // Setup the roles that have been selected by the user
+            //
+
+            string roles = "";
+            
             if ((bool)tbtn_tagCreator.IsChecked)
                 roles = "tagcreator";
             if ((bool)tbtn_softwareCreator.IsChecked)
@@ -56,15 +61,24 @@ namespace WpfApplication2
                 roles = roles + " licensor";
 
 
-            firstTag.AddEntity(tb_entityName.Text, tb_entityRegid.Text, roles);
+            if (lb_roles.SelectedItems.Count >0)
+                foreach (System.Windows.Controls.ListBoxItem item in lb_roles.SelectedItems)
+                {
+                    roles = roles + " " +  item.Content.ToString();
+                }
+
+
+
+
+            swidTag.AddEntity(tb_entityName.Text, tb_entityRegid.Text, roles);
 
 
             //
             // Tmp fix for incorrect attribute name
             // 
-            //System.IO.File.WriteAllText("c:\\tmp\\test1.xml", firstTag.SwidTagXml.Replace("regId", "regid");
+            //System.IO.File.WriteAllText("c:\\tmp\\test1.xml", swidTag.SwidTagXml.Replace("regId", "regid");
 
-            tagToWrite = firstTag.SwidTagXml.Replace("regId", "regid");
+            tagToWrite = swidTag.SwidTagXml.Replace("regId", "regid");
             tagToWrite = tagToWrite.Replace("p2:role", "role");
             tagToWrite = tagToWrite.Replace(" xmlns:p2=\"http://standards.iso.org/iso/19770/-2/2015/schema.xsd\" ", " ");
 
@@ -104,38 +118,30 @@ namespace WpfApplication2
                 // Parse the Text into a SWID Tag
                 var openTag = SoftwareIdentity.LoadXml(XMLData);
 
-                tb_entityName.Text = openTag.Name;
+                tb_prdName.Text = openTag.Name;
                 tb_version.Text = openTag.Version;
                 cb_versionScheme.Text = openTag.VersionScheme;
                 tb_tagId.Text = openTag.TagId;
-                
-                //foreach (var child in openTag.Meta.GetEnumerator())
-                //{
-                //    Console.WriteLine(child.Name);
-                //}
-                //tb_edition = openTag.Meta;
+
+                var meta = openTag.Meta.FirstOrDefault(each => each["edition"] != null);
+                if (meta != null)
+                {
+                    // you can access metdata as a dictionary
+                    var str1 = meta["edition"];
+                    tb_edition.Text = str1;
+                    // or use known properties directly
+                    //var str = meta.edition;
+                }
 
 
-
-
-                //firstTag.AddMeta().Edition = tb_edition.Text;
-
-                //string roles = "";
-                //string tagToWrite = "";
-
-                //if ((bool)tbtn_tagCreator.IsChecked)
-                //    roles = "tagcreator";
-                //if ((bool)tbtn_softwareCreator.IsChecked)
-                //    roles = roles + " softwarecreator";
-                //if ((bool)tbtn_licensor.IsChecked)
-                //    roles = roles + " licensor";
-
-
-                //firstTag.AddEntity(tb_entityName.Text, tb_entityRegid.Text, roles);
 
             }
 
 
+        }
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
