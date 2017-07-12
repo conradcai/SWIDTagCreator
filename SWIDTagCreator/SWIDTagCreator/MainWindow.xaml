@@ -5,27 +5,111 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="452.8" Width="491.993">
-    <Grid Margin="0,0,3.6,2">
-        <DockPanel>
-            <Menu DockPanel.Dock="Top">
+        Title="SWID Creator" Height="563.6" Width="519.326">
+    <Grid Margin="0,1,4,-1">
+        <DockPanel Margin="0,0,0,510">
+            <Menu DockPanel.Dock="Top" Height="16" Margin="0,0,-6,0">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Open" Click="btnFileOpen_Click"/>
                     <MenuItem Header="_Save" Click="saveTag_Click"/>
                     <MenuItem Header="E_xit" Click="exit_Click"/>
                 </MenuItem>
+
+
             </Menu>
-            <StackPanel></StackPanel>
         </DockPanel>
-        <Label x:Name="label" Content="Name" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.016,0.173"/>
-        <TextBox x:Name="tb_prdName" HorizontalAlignment="Left" Height="23" Margin="78,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label1" Content="Edition" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_edition" HorizontalAlignment="Left" Height="23" Margin="78,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.179,-0.441"/>
-        <Label x:Name="VersionL" Content="Version" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_version" HorizontalAlignment="Left" Height="23" Margin="78,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <Button x:Name="btnCreate" Content="Create SWID" HorizontalAlignment="Left" Margin="389,388,0,0" VerticalAlignment="Top" Width="75" Click="saveTag_Click" IsDefault="True"/>
-        <Label x:Name="label2" Content="Version Scheme" HorizontalAlignment="Left" Margin="216,93,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cb_versionScheme" HorizontalAlignment="Left" Margin="315,96,0,0" VerticalAlignment="Top" Width="149" SelectedIndex="2">
+        <Label x:Name="label" Content="Product Name" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.016,0.173"/>
+        <TextBox x:Name="tb_prdName" HorizontalAlignment="Left"  Margin="123,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" ToolTipService.ShowDuration="10000">
+            <TextBox.ToolTip >
+                <StackPanel>
+                    <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Name</TextBlock>
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow">This should be a Software Vendor's normalized and consistently used product name</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>ISO Definition:&#032;</Bold> This attribute provides the software component name as it would typically be referenced. For example, what would be seen in the add/remove dialog on a Windows device, or what is specified as the name of a packaged software product or a patch identifier name on a Linux device.</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>NIST-IR Definition:&#032;</Bold> @name: the string name of the software product or component as it would normally be referenced, e.g., “ACME Roadrunner Management Suite”. A value for @name is required according to the SWID specification.</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <WrapPanel>
+                        <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                    </WrapPanel>
+                </StackPanel>
+
+            </TextBox.ToolTip>
+        </TextBox>
+        <Label x:Name="label1" Content="Product Edition" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_edition" HorizontalAlignment="Left"  Margin="123,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" RenderTransformOrigin="0.179,-0.441" ToolTipService.ShowDuration="10000">
+            <TextBox.ToolTip >
+                <StackPanel>
+                    <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Edition</TextBlock>
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow">If the product defined includes an edition, the Software Vendor's normalized reference for the edition should be included in this field</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>ISO Definition:&#032;</Bold> The variation of the product (Extended, Enterprise, Professional, Standard).</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>NIST-IR Definition:&#032;</Bold> @edition: the variation of the product (e.g., “Home”, “Enterprise”, “Student”).</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <WrapPanel>
+                        <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                    </WrapPanel>
+                </StackPanel>
+
+            </TextBox.ToolTip>
+        </TextBox>
+        <Label x:Name="label4" Content="Colloquial Version" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top"/>
+
+        <TextBox x:Name="tb_Colloquial" HorizontalAlignment="Left"  Margin="123,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" RenderTransformOrigin="0.5,0.522" ToolTipService.ShowDuration="15000">
+            <TextBox.ToolTip >
+                <StackPanel>
+                    <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Colloquial Version</TextBlock>
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow">If the product defined includes a colloquial version, or common version, include it here.  This is not the underlying build version, but rather the Software Vendor's normalized reference version for a set of releases that are generally considered related to each other (i.e. Office 2016 - 2016 is the colloquial version).</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>ISO Definition:&#032;</Bold>The informal or colloquial version of the product (i.e. 2013). Note that this version may be the same through multiple releases of a software product where the version specified in SoftwareEntity is much more specific and will change for each software release.<LineBreak/><LineBreak/>Note that this representation of version is typically used to identify a group of specific software releases that are part of the same release/support infrastructure (i.e. Fabrikam Office 2013). This version is used for string comparisons only and is not compared to be an earlier or later release (that is done via the SoftwareEntity version).</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>NIST-IR Definition:&#032;</Bold>@colloquialVersion: the informal version of the product (e.g., 2013). The colloquial version may be the same through multiple releases of a software product where the @version specified in &lt;SoftwareIdentity&gt; is much more specific and will change for each software release.</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <WrapPanel>
+                        <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                    </WrapPanel>
+                </StackPanel>
+
+            </TextBox.ToolTip>
+
+        </TextBox>
+
+        <Label x:Name="Version" Content="Product Version" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_version" HorizontalAlignment="Left"  Margin="123,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"  ToolTipService.ShowDuration="10000">
+            <TextBox.ToolTip >
+                <StackPanel>
+                    <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Version</TextBlock>
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow">This should be the underlying full build version of the product. Often, this will be 4 digits separated by decimal points.</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>ISO Definition:&#032;</Bold> Underlying development version for the software component.</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>NIST-IR Definition:&#032;</Bold> @version: the detailed version of the product, e.g., “4.1.5”. In the SWID specification, a value for @version is optional and defaults to “0.0”. Sections 5.1.2 and 5.2.2 of this report provide guidelines that require a value for @version in corpus and primary tags.</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <WrapPanel>
+                        <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                    </WrapPanel>
+                </StackPanel>
+
+            </TextBox.ToolTip>
+        </TextBox>
+        <Label x:Name="label2" Content="Version Scheme" HorizontalAlignment="Left" Margin="249,115,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_versionScheme" HorizontalAlignment="Left" Margin="348,117,0,0" VerticalAlignment="Top" Width="149" SelectedIndex="2"  ToolTipService.ShowDuration="10000">
+            <ComboBox.ToolTip >
+                <StackPanel>
+                    <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Version Scheme</TextBlock>
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow">This provides tools the ability to identify details of how to interpret the version number provided</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>ISO Definition:&#032;</Bold>VersionScheme provides the types of version schemas that are represented in the version values.  See Standard for more information</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>NIST-IR Definition:&#032;</Bold>The SWID specification defines the &lt;SoftwareIdentity&gt; @versionScheme attribute to record a token that designates the “scheme” according to which the value of &lt;SoftwareIdentity&gt; @version can be parsed and interpreted. Like @version, the SWID specification defines @versionScheme as “optional” with a default value of multipartnumeric.</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <WrapPanel>
+                        <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                    </WrapPanel>
+                </StackPanel>
+
+            </ComboBox.ToolTip>
             <ComboBoxItem Content="decimal"/>
             <ComboBoxItem Content="alphanumeric"/>
             <ComboBoxItem Content="multipartnumeric"/>
@@ -33,12 +117,204 @@
             <ComboBoxItem Content="semver" IsEnabled="False"/>
             <ComboBoxItem Content="unknown"/>
         </ComboBox>
-        <Label x:Name="label3" Content="TagID" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.586,0.057"/>
-        <TextBox x:Name="tb_tagId" HorizontalAlignment="Left" Height="23" Margin="78,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
-        <Button x:Name="btnCreateGUID" Content="Generate GUID" HorizontalAlignment="Left" Margin="371,125,0,0" VerticalAlignment="Top" Width="93" Click="btnCreateGUID_Click"/>
-        <GroupBox x:Name="gb_entity" Header="Entity" HorizontalAlignment="Left" Margin="5,175,0,0" VerticalAlignment="Top" Height="197" Width="459">
+        <Label x:Name="label3" Content="TagID" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.586,0.057"/>
+        <TextBox x:Name="tb_tagId"  Margin="123,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="268" ToolTipService.ShowDuration="30000">
+            <TextBox.ToolTip >
+                <StackPanel>
+                    <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">TagID</TextBlock>
+                    <TextBlock Width="500" TextWrapping="wrapwithoverflow">This is a globally unique ID for the tag representing this product.  <LineBreak/> <LineBreak/>A recommended string for this value is <LineBreak/><Bold>regid + productName + version + edition + revision</Bold></TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock Width="500" TextWrapping="wrapwithoverflow"><Bold>ISO Definition:&#032;</Bold> tagId shall be a globally unique identifier and should be assigned a GUID (see ISO/IEC 19770-5 definition for GUID).
+The tagId provides a unique reference for the specific product, version, edition, revision, etc.<LineBreak/><LineBreak/>
+If two tagId’s match and the tagCreator is the same, the underlying products they represent are expected to be the same. It is recommended that if a software release is available for multiple platforms, that each platform have its own unique tagId. However, it’s recognized that some existing development processes may use the same tagId for the same release that may be available on different platforms.<LineBreak/><LineBreak/>
+This allows IT systems to identify if a software item (for example, a patch) is installed simply by referencing the specific tagId value which is likely to be readily available in a software inventory.<LineBreak/><LineBreak/>
+It is recommended, when possible, that a 16 byte GUID be used for this field; this provides global uniqueness without a significant amount of overhead for space.<LineBreak/><LineBreak/>
+If use of a 16 byte GUID is not possible, a text-based globally unique ID may be constructed, this ID should include a unique naming authority for the tagCreator and sufficient additional details that the tagId is unique for the software product, version, edition, revision, etc. This would likely look as follows (+ is used as a string concatenation symbol):<LineBreak/><LineBreak/>
+regid + productName + version + edition + revision + …</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock Width="500" TextWrapping="wrapwithoverflow"><Bold>NIST-IR Definition:&#032;</Bold>@tagId: a globally unique identifier that may be used as a proxy identifier in other contexts to refer to the tagged product. A value for @tagId is required according to the SWID specification.</TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <WrapPanel>
+                        <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                    </WrapPanel>
+                </StackPanel>
 
-            <Grid HorizontalAlignment="Left" Height="165" Margin="0,13,-8.6,-3.6" VerticalAlignment="Top" Width="455">
+            </TextBox.ToolTip>
+        </TextBox>
+
+        <Button x:Name="btnCreateGUID" Content="Generate GUID" HorizontalAlignment="Left" Margin="404,149,0,0" VerticalAlignment="Top" Width="93" Click="btnCreateGUID_Click" Height="24"/>
+
+        <!--**** Entity Information is defined below **** -->
+
+        <StackPanel Margin="-3,226,3,0"  VerticalAlignment="Top" Height="306">
+            <Rectangle HorizontalAlignment="Left" Fill="Black" Height="2" Width="512" />
+
+            <GroupBox x:Name="gb_entity1" Header="Entity (At least one entity element - tagCreator - is required)" Height="101" Margin="0,0,-4,0" HorizontalAlignment="Left" Width="511">
+
+                <Grid HorizontalAlignment="Left"  Margin="0,13,-8.6,0" VerticalAlignment="Top" Width="455">
+                    <Label x:Name="nameLabel1" Content="Entity name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,0,0,0" ToolTipService.ShowDuration="10000"/>
+                    <TextBox x:Name="tb_entityName1" HorizontalAlignment="Left"  Margin="104,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" ToolTipService.ShowDuration="10000">
+                        <TextBox.ToolTip >
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Entity->Name</TextBlock>
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow">This is the normalized/canonical name of the organization.</TextBlock>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>ISO Definition:&#032;</Bold> The name of the organization claiming a particular role in the SWID tag.</TextBlock>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>NIST-IR Definition:&#032;</Bold>@name: the string name of the software product or component as it would normally be referenced, e.g., “ACME Roadrunner Management Suite”. A value for @name is required according to the SWID specification.</TextBlock>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <WrapPanel>
+                                    <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                                </WrapPanel>
+                            </StackPanel>
+
+                        </TextBox.ToolTip>
+                    </TextBox>
+                    <Label x:Name="RegidLabel1" Content="Entity regid" HorizontalAlignment="Left" Margin="29,26,0,0" VerticalAlignment="Top" />
+                    <TextBox x:Name="tb_entityRegid1" HorizontalAlignment="Left"  Margin="104,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" ToolTipService.ShowDuration="30000">
+                        <TextBox.ToolTip >
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Entity->Regid</TextBlock>
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow">This is a valid minimal URI that can be used to reference the Entity.<LineBreak/><LineBreak/>Example:  tagvault.org</TextBlock>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>ISO Definition:&#032;</Bold>The regid of the organization. If the regid is unknown, the value “http:// invalid .unavailable” is the default value.  <LineBreak/><LineBreak/>
+A regid shall use a URI reference (see IETF RFC 3986). Once an organization specifies a regid for their organization’s software, that regid shall be used consistently for all software from the organization.<LineBreak/><LineBreak/>
+To ensure interoperability, allow for open source project support and third party tag consistency, the following recommendations should be applied when creating a regid.<LineBreak/><LineBreak/>
+— Unless otherwise required, the URI should utilize the http scheme.<LineBreak/><LineBreak/>
+— If the http scheme is used, the “http://” may be left off the regid string (a string without a URI scheme specified is defined to use the “http://” scheme).<LineBreak/><LineBreak/>
+— Unless otherwise required, the URI should use an absolute-URI that includes an authority part, such as a domain name.<LineBreak/><LineBreak/>
+— To ensure consistency, the absolute-URI should use the minimum string required (for example, example.com should be used instead of www .example .com).</TextBlock>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>NIST-IR Definition:&#032;</Bold>@regid: the “registration identifier” of the entity. A value for @regid is required when the %lt;Entity&gt; element is used to identify the tag creator (e.g., @role=“tagCreator”), otherwise @regid is optional and defaults to “invalid.unavailable” according to the SWID specification.</TextBlock>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <WrapPanel>
+                                    <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                                </WrapPanel>
+                            </StackPanel>
+
+                        </TextBox.ToolTip>
+                    </TextBox>
+
+                    <Label x:Name="RolesLabel1" Content="Roles" HorizontalAlignment="Left" Margin="310,1,0,0" VerticalAlignment="Top" />
+                    <CheckBox x:Name="tbtn_tagCreator1" Content="tagCreator" HorizontalAlignment="Left" Margin="349,8,0,0" VerticalAlignment="Top" IsChecked="True" IsEnabled="False" ToolTipService.ShowDuration="10000">
+                        <CheckBox.ToolTip >
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Role (tagCreator)</TextBlock>
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow">This indicates that the entity details listed in this section are specified as the organization (or individual) that created this SWID tag.</TextBlock>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>ISO Definition:&#032;</Bold> The relationship between this organization and this tag e.g. tag, softwareCreator, licensor, tagCreator, etc.<LineBreak/><LineBreak/>
+The role of tagCreator is required for every SWID tag.</TextBlock>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>NIST-IR Definition:&#032;</Bold>The entity that creates a given SWID tag.</TextBlock>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <WrapPanel>
+                                    <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                                </WrapPanel>
+                            </StackPanel>
+
+                        </CheckBox.ToolTip>
+                    </CheckBox>
+                    <CheckBox x:Name="tbtn_softwareCreator1" Content="softwareCreator" HorizontalAlignment="Left" Margin="349,28,0,0" VerticalAlignment="Top" Click="chkSWCreator_Click1" ToolTipService.ShowDuration="10000">
+                    <CheckBox.ToolTip >
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Role (softwareCreator)</TextBlock>
+                            <TextBlock Width="300" TextWrapping="wrapwithoverflow">This indicates that the entity details listed in this section are specified as the organization (or individual) that created the software identified by this SWID tag.</TextBlock>
+                            <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>ISO Definition:&#032;</Bold> person or organization that creates a software product (3.46) or package (3.44)<LineBreak/><LineBreak/>
+Note 1 to entry: This entity might or might not own the rights to sell or distribute the software.<LineBreak/><LineBreak/>
+Note 2 to entry: This part of ISO/IEC 19770 uses the terms software creator and software licensor (3.43), rather than common alternatives such as “software publisher” or “software manufacturer”, for more precision and hopefully greater clarity.
+</TextBlock>
+                            <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>NIST-IR Definition:&#032;</Bold>A person or organization that creates a software product.</TextBlock>
+                            <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                            <WrapPanel>
+                                <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                            </WrapPanel>
+                        </StackPanel>
+
+                    </CheckBox.ToolTip>
+                    </CheckBox>
+                    <CheckBox x:Name="tbtn_licensor1" Content="licensor" HorizontalAlignment="Left" Margin="349,50,0,0" VerticalAlignment="Top" Click="chkLicensor_Click1" ToolTipService.ShowDuration="10000">
+                    <CheckBox.ToolTip >
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Role (licensor)</TextBlock>
+                            <TextBlock Width="300" TextWrapping="wrapwithoverflow">This indicates that the entity details listed in this section are specified as the organization (or individual) that created the software identified by this SWID tag.</TextBlock>
+                            <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>ISO Definition:&#032;</Bold> person or organization who owns or holds the rights to issue a software license (3.41) for a specific software package
+Note 1 to entry: This entity might or might not create the software.<LineBreak/><LineBreak/>
+Note 2 to entry: This part of ISO/IEC 19770 uses the terms software creator (3.38) and software licensor, rather than common alternatives such as “software publisher” or “software manufacturer”, for more precision and hopefully greater clarity.
+                                </TextBlock>
+                            <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>NIST-IR Definition:&#032;</Bold>A person or organization that owns or holds the rights to issue a software license for a specific software package.</TextBlock>
+                            <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                            <WrapPanel>
+                                <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                            </WrapPanel>
+                        </StackPanel>
+
+                    </CheckBox.ToolTip>
+                    </CheckBox>
+
+                </Grid>
+            </GroupBox>
+
+            <Rectangle HorizontalAlignment="Left" Fill="Black" Height="1" Width="512" />
+
+            <Expander IsExpanded="False" ExpandDirection="Down" VerticalAlignment="Stretch" Header=" Entity 2 (Optional)" Margin="9,0,0,0" >
+                <Expander.ToolTip>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Optionional Entities</TextBlock>
+                        <TextBlock Width="300" TextWrapping="wrapwithoverflow">Optional additional Entity entries can be created, but are not required.  This tool currenly only supports entity references for up to three specific roles - tagCreator, softwareCreator and licensor.  If desired, additional roles can be created such as aggregator, distributor and reseller.</TextBlock>
+                        <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                        <WrapPanel>
+                            <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                        </WrapPanel>
+                    </StackPanel>
+
+                </Expander.ToolTip>
+                <Grid Width="455">
+                    <Label x:Name="nameLabel2" Content="Entity name" HorizontalAlignment="Left" />
+                    <TextBox x:Name="tb_entityName2" HorizontalAlignment="Left" Margin="74,6,0,38" TextWrapping="Wrap"  Width="202" />
+                    <Label x:Name="RegidLabel2" Content="Entity regid" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tb_entityRegid2" HorizontalAlignment="Left" Margin="74,32,0,12" TextWrapping="Wrap"  Width="202"/>
+                    <Label x:Name="RolesLabel2" Content="Roles" HorizontalAlignment="Left" Margin="281,1,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="tbtn_softwareCreator2" Content="softwareCreator" HorizontalAlignment="Left" Margin="329,7,0,0" Click="chkSWCreator_Click2"/>
+                    <CheckBox x:Name="tbtn_licensor2" Content="licensor" HorizontalAlignment="Left" Margin="329,29,0,0" VerticalAlignment="Top" Click="chkLicensor_Click2"/>
+                </Grid>
+            </Expander>
+
+            <Rectangle HorizontalAlignment="Left" Fill="Black" Height="1" Width="512" />
+
+            <Expander IsExpanded="False"  ExpandDirection="Down" VerticalAlignment="Stretch" Header=" Entity 3 (Optional)" Height="85" Margin="9,0,0,0" >
+                <Expander.ToolTip>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Optioninal Entities</TextBlock>
+                        <TextBlock Width="300" TextWrapping="wrapwithoverflow">Optional additional Entity entries can be created, but are not required.  This tool currenly only supports entity references for up to three specific roles - tagCreator, softwareCreator and licensor.  If desired, additional roles can be created such as aggregator, distributor and reseller.</TextBlock>
+                        <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                        <WrapPanel>
+                            <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                        </WrapPanel>
+                    </StackPanel>
+
+                </Expander.ToolTip>
+
+                <Grid    Width="455" >
+
+                    <Label x:Name="nameLabel3" Content="Entity name" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tb_entityName3" HorizontalAlignment="Left"  Margin="74,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202"/>
+                    <Label x:Name="RegidLabel3" Content="Entity regid" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tb_entityRegid3" HorizontalAlignment="Left"  Margin="74,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202"/>
+                    <Label x:Name="RolesLabel3" Content="Roles" HorizontalAlignment="Left" Margin="281,1,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="tbtn_softwareCreator3" Content="softwareCreator" HorizontalAlignment="Left" Margin="329,7,0,0" VerticalAlignment="Top" Click="chkSWCreator_Click3"/>
+                    <CheckBox x:Name="tbtn_licensor3" Content="licensor" HorizontalAlignment="Left" Margin="329,29,0,0" VerticalAlignment="Top" Click="chkLicensor_Click3"/>
+                </Grid>
+            </Expander>
+
+        </StackPanel>
+
+        <!--<GroupBox x:Name="gb_entity" Header="Entity" HorizontalAlignment="Left" Margin="5,437,0,0" VerticalAlignment="Top" Height="225" Width="459">
+
+            <Grid HorizontalAlignment="Left" Height="457" Margin="0,13,-8.6,0" VerticalAlignment="Top" Width="455">
                 <Label x:Name="label4" Content="name" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <TextBox x:Name="tb_entityName" HorizontalAlignment="Left" Height="23" Margin="46,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
                 <Label x:Name="label5" Content="regid" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top"/>
@@ -52,9 +328,13 @@
                     <ListBoxItem Content="aggregator"/>
                     <ListBoxItem Content="distributor"/>
                 </ListBox>
-            </Grid>
-        </GroupBox>
 
+            </Grid>
+
+
+        </GroupBox>-->
+
+        <Button x:Name="btnCreate" Content="Create SWID" HorizontalAlignment="Left" Margin="422,503,0,0" VerticalAlignment="Top" Width="75" Click="saveTag_Click" IsDefault="True"/>
 
 
     </Grid>

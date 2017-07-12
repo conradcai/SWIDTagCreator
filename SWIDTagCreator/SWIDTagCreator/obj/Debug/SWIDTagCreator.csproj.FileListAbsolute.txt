@@ -24,3 +24,7 @@ D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCre
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Debug\SWIDTagCreator.csproj.GenerateResource.Cache
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Debug\SWIDTagCreator.exe
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Debug\SWIDTagCreator.pdb
+D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\bin\Debug\SWIDTagCreator.exe.manifest
+D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\bin\Debug\SWIDTagCreator.application
+D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Debug\SWIDTagCreator.exe.manifest
+D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Debug\SWIDTagCreator.application
