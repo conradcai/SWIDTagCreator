@@ -196,7 +196,7 @@ To ensure interoperability, allow for open source project support and third part
                     </TextBox>
 
                     <Label x:Name="RolesLabel1" Content="Roles" HorizontalAlignment="Left" Margin="310,1,0,0" VerticalAlignment="Top" />
-                    <CheckBox x:Name="tbtn_tagCreator1" Content="tagCreator" HorizontalAlignment="Left" Margin="349,8,0,0" VerticalAlignment="Top" IsChecked="True" IsEnabled="False" ToolTipService.ShowDuration="10000">
+                    <CheckBox x:Name="tbtn_tagCreator1" Content="tagCreator" HorizontalAlignment="Left" Margin="349,8,0,0" VerticalAlignment="Top" IsChecked="false" IsEnabled="False" ToolTipService.ShowDuration="10000">
                         <CheckBox.ToolTip >
                             <StackPanel>
                                 <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Role (tagCreator)</TextBlock>

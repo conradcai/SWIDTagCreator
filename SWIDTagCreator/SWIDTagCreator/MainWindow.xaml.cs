@@ -302,7 +302,20 @@ namespace WpfApplication2
                 int enumEntities = entities.Count();
                 if (enumEntities !=0)
                 {
-                    //var test = entities.FirstOrDefault;
+                    
+                    var value = entities.FirstOrDefault();
+                    var name = value.Name;
+                    var role = value.Role;
+                    var regid = value.RegId;
+
+                    tb_entityName1.Text = name;
+                    tb_entityRegid1.Text = regid;
+                    if (role.Contains("tagcreator"))
+                    {
+                        tbtn_tagCreator1.IsEnabled=true;
+                    }
+
+                    
                     // you can access metdata as a dictionary
                     //var str1 = entity["tagCreator"];
                     //tbtn_tagCreator1.Checked = true;
