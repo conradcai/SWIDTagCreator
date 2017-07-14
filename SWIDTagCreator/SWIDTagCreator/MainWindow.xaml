@@ -149,7 +149,7 @@ regid + productName + version + edition + revision + …</TextBlock>
         <StackPanel Margin="-3,226,3,0"  VerticalAlignment="Top" Height="306">
             <Rectangle HorizontalAlignment="Left" Fill="Black" Height="2" Width="512" />
 
-            <GroupBox x:Name="gb_entity1" Header="Entity (At least one entity element - tagCreator - is required)" Height="101" Margin="0,0,-4,0" HorizontalAlignment="Left" Width="511">
+            <GroupBox x:Name="gb_entity1" Header="Entity (At least one entity element is required - this Entity item will be the tagCreator)" Height="101" Margin="0,0,-4,0" HorizontalAlignment="Left" Width="511">
 
                 <Grid HorizontalAlignment="Left"  Margin="0,13,-8.6,0" VerticalAlignment="Top" Width="455">
                     <Label x:Name="nameLabel1" Content="Entity name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,0,0,0" ToolTipService.ShowDuration="10000"/>
@@ -195,8 +195,8 @@ To ensure interoperability, allow for open source project support and third part
                         </TextBox.ToolTip>
                     </TextBox>
 
-                    <Label x:Name="RolesLabel1" Content="Roles" HorizontalAlignment="Left" Margin="310,1,0,0" VerticalAlignment="Top" />
-                    <CheckBox x:Name="tbtn_tagCreator1" Content="tagCreator" HorizontalAlignment="Left" Margin="349,8,0,0" VerticalAlignment="Top" IsChecked="false" IsEnabled="False" ToolTipService.ShowDuration="10000">
+                    <Label x:Name="RolesLabel1" Content="Roles" HorizontalAlignment="Left" Margin="310,0,0,0" VerticalAlignment="Top" />
+                    <CheckBox x:Name="tbtn_tagCreator1" Content="tagCreator" HorizontalAlignment="Left" Margin="349,7,0,0" VerticalAlignment="Top" IsChecked="true" IsEnabled="False" ToolTipService.ShowDuration="10000">
                         <CheckBox.ToolTip >
                             <StackPanel>
                                 <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Role (tagCreator)</TextBlock>
@@ -214,45 +214,45 @@ The role of tagCreator is required for every SWID tag.</TextBlock>
 
                         </CheckBox.ToolTip>
                     </CheckBox>
-                    <CheckBox x:Name="tbtn_softwareCreator1" Content="softwareCreator" HorizontalAlignment="Left" Margin="349,28,0,0" VerticalAlignment="Top" Click="chkSWCreator_Click1" ToolTipService.ShowDuration="10000">
-                    <CheckBox.ToolTip >
-                        <StackPanel>
-                            <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Role (softwareCreator)</TextBlock>
-                            <TextBlock Width="300" TextWrapping="wrapwithoverflow">This indicates that the entity details listed in this section are specified as the organization (or individual) that created the software identified by this SWID tag.</TextBlock>
-                            <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <CheckBox x:Name="tbtn_softwareCreator1" Content="softwareCreator" HorizontalAlignment="Left" Margin="349,27,0,0" VerticalAlignment="Top" Click="chkSWCreator_Click1" ToolTipService.ShowDuration="10000">
+                        <CheckBox.ToolTip >
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Role (softwareCreator)</TextBlock>
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow">This indicates that the entity details listed in this section are specified as the organization (or individual) that created the software identified by this SWID tag.</TextBlock>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
                                 <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>ISO Definition:&#032;</Bold> person or organization that creates a software product (3.46) or package (3.44)<LineBreak/><LineBreak/>
 Note 1 to entry: This entity might or might not own the rights to sell or distribute the software.<LineBreak/><LineBreak/>
 Note 2 to entry: This part of ISO/IEC 19770 uses the terms software creator and software licensor (3.43), rather than common alternatives such as “software publisher” or “software manufacturer”, for more precision and hopefully greater clarity.
-</TextBlock>
-                            <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                </TextBlock>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
                                 <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>NIST-IR Definition:&#032;</Bold>A person or organization that creates a software product.</TextBlock>
-                            <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
-                            <WrapPanel>
-                                <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
-                            </WrapPanel>
-                        </StackPanel>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <WrapPanel>
+                                    <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                                </WrapPanel>
+                            </StackPanel>
 
-                    </CheckBox.ToolTip>
+                        </CheckBox.ToolTip>
                     </CheckBox>
-                    <CheckBox x:Name="tbtn_licensor1" Content="licensor" HorizontalAlignment="Left" Margin="349,50,0,0" VerticalAlignment="Top" Click="chkLicensor_Click1" ToolTipService.ShowDuration="10000">
-                    <CheckBox.ToolTip >
-                        <StackPanel>
-                            <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Role (licensor)</TextBlock>
-                            <TextBlock Width="300" TextWrapping="wrapwithoverflow">This indicates that the entity details listed in this section are specified as the organization (or individual) that created the software identified by this SWID tag.</TextBlock>
-                            <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <CheckBox x:Name="tbtn_licensor1" Content="licensor" HorizontalAlignment="Left" Margin="349,49,0,0" VerticalAlignment="Top" Click="chkLicensor_Click1" ToolTipService.ShowDuration="10000">
+                        <CheckBox.ToolTip >
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Role (licensor)</TextBlock>
+                                <TextBlock Width="300" TextWrapping="wrapwithoverflow">This indicates that the entity details listed in this section are specified as the organization (or individual) that created the software identified by this SWID tag.</TextBlock>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
                                 <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>ISO Definition:&#032;</Bold> person or organization who owns or holds the rights to issue a software license (3.41) for a specific software package
 Note 1 to entry: This entity might or might not create the software.<LineBreak/><LineBreak/>
 Note 2 to entry: This part of ISO/IEC 19770 uses the terms software creator (3.38) and software licensor, rather than common alternatives such as “software publisher” or “software manufacturer”, for more precision and hopefully greater clarity.
                                 </TextBlock>
-                            <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
                                 <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold>NIST-IR Definition:&#032;</Bold>A person or organization that owns or holds the rights to issue a software license for a specific software package.</TextBlock>
-                            <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
-                            <WrapPanel>
-                                <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
-                            </WrapPanel>
-                        </StackPanel>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <WrapPanel>
+                                    <TextBlock FontStyle="Italic">See ISO/IEC 19770-2 or NIST-IR 8060 for more information</TextBlock>
+                                </WrapPanel>
+                            </StackPanel>
 
-                    </CheckBox.ToolTip>
+                        </CheckBox.ToolTip>
                     </CheckBox>
 
                 </Grid>
@@ -260,7 +260,7 @@ Note 2 to entry: This part of ISO/IEC 19770 uses the terms software creator (3.3
 
             <Rectangle HorizontalAlignment="Left" Fill="Black" Height="1" Width="512" />
 
-            <Expander IsExpanded="False" ExpandDirection="Down" VerticalAlignment="Stretch" Header=" Entity 2 (Optional)" Margin="9,0,0,0" >
+            <Expander x:Name="Entity2" IsExpanded="False" ExpandDirection="Down" VerticalAlignment="Stretch" Header=" Entity 2 (Optional)" Margin="9,0,0,0" >
                 <Expander.ToolTip>
                     <StackPanel>
                         <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Optionional Entities</TextBlock>
@@ -285,7 +285,7 @@ Note 2 to entry: This part of ISO/IEC 19770 uses the terms software creator (3.3
 
             <Rectangle HorizontalAlignment="Left" Fill="Black" Height="1" Width="512" />
 
-            <Expander IsExpanded="False"  ExpandDirection="Down" VerticalAlignment="Stretch" Header=" Entity 3 (Optional)" Height="85" Margin="9,0,0,0" >
+            <Expander x:Name="Entity3" IsExpanded="False"  ExpandDirection="Down" VerticalAlignment="Stretch" Header=" Entity 3 (Optional)" Height="85" Margin="9,0,0,0" >
                 <Expander.ToolTip>
                     <StackPanel>
                         <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Optioninal Entities</TextBlock>

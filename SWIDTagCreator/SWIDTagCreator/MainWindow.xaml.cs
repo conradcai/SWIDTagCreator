@@ -101,11 +101,11 @@ namespace WpfApplication2
             //
 
             string roles = "";
-            
+
             if ((bool)tbtn_tagCreator1.IsChecked)
-                roles = "tagcreator";
+                roles = "tagCreator";
             if ((bool)tbtn_softwareCreator1.IsChecked)
-                roles = roles + " softwarecreator";
+                roles = roles + " softwareCreator";
             if ((bool)tbtn_licensor1.IsChecked)
                 roles = roles + " licensor";
 
@@ -115,12 +115,12 @@ namespace WpfApplication2
             // Setup the roles that have been selected by the user for the first entity
             //
 
-            
+
             if (tb_entityName2.Text != "")
             {
                 roles = "";
                 if ((bool)tbtn_softwareCreator2.IsChecked)
-                    roles = roles + " softwarecreator";
+                    roles = roles + " softwareCreator";
                 if ((bool)tbtn_licensor2.IsChecked)
                     roles = roles + " licensor";
 
@@ -131,7 +131,7 @@ namespace WpfApplication2
             {
                 roles = "";
                 if ((bool)tbtn_softwareCreator3.IsChecked)
-                    roles = roles + " softwarecreator";
+                    roles = roles + " softwareCreator";
                 if ((bool)tbtn_licensor3.IsChecked)
                     roles = roles + " licensor";
 
@@ -157,7 +157,7 @@ namespace WpfApplication2
             if (saveFileDialog.ShowDialog() == true)
                 System.IO.File.WriteAllText(saveFileDialog.FileName, tagToWrite);
             //System.IO.File.WriteAllText(dialog.FileName, tagToWrite);
-            
+
             //
             // End of Tmp fix
             //
@@ -165,7 +165,7 @@ namespace WpfApplication2
 
         }
 
-        private void chkSWCreator_Click1 (object sender, RoutedEventArgs e)
+        private void chkSWCreator_Click1(object sender, RoutedEventArgs e)
         {
             if (tbtn_softwareCreator1.IsChecked == true)
             {
@@ -270,8 +270,37 @@ namespace WpfApplication2
                 // Read text into string
                 string XMLData = System.IO.File.ReadAllText(filename);
 
+                //Note - this change is required to deal with an error in the element name in the SWID handling library
+                XMLData = XMLData.Replace("regid", "regId");
+
                 // Parse the Text into a SWID Tag
                 var openTag = SoftwareIdentity.LoadXml(XMLData);
+
+                // Clear out and reset the form before starting to populate values
+
+                tb_prdName.Text = "";
+                tb_edition.Text = "";
+                tb_Colloquial.Text = "";
+                tb_version.Text = "";
+                tb_tagId.Text = "";
+
+                tb_entityName1.Text = "";
+                tb_entityRegid1.Text = "";
+                tbtn_softwareCreator1.IsChecked = false;
+                tbtn_licensor1.IsChecked = false;
+
+                tb_entityName2.Text = "";
+                tb_entityRegid2.Text = "";
+                tbtn_softwareCreator2.IsChecked = false;
+                tbtn_licensor2.IsChecked = false;
+                Entity2.IsExpanded = false;
+
+
+                tb_entityName3.Text = "";
+                tb_entityRegid3.Text = "";
+                tbtn_softwareCreator3.IsChecked = false;
+                tbtn_licensor3.IsChecked = false;
+                Entity3.IsExpanded = false;
 
                 tb_prdName.Text = openTag.Name;
                 var meta = openTag.Meta.FirstOrDefault(each => each["edition"] != null);
@@ -297,38 +326,107 @@ namespace WpfApplication2
                     //var str = meta.edition;
                 }
 
-                 
-                var entities = openTag.Entities;
-                int enumEntities = entities.Count();
-                if (enumEntities !=0)
-                {
-                    
-                    var value = entities.FirstOrDefault();
-                    var name = value.Name;
-                    var role = value.Role;
-                    var regid = value.RegId;
 
-                    tb_entityName1.Text = name;
-                    tb_entityRegid1.Text = regid;
-                    if (role.Contains("tagcreator"))
+
+                System.Windows.Controls.TextBox entName, entRegid;
+                System.Windows.Controls.CheckBox swCreator, tagCreator, licensor;
+
+                bool tagCreatorDefined = false, softwareCreatorDefined = false, licensorDefined = false, tooManyEntities = false, noEntities = true;
+                int entityOptionNumber = 2;
+                string warningMessage="";
+
+                
+                foreach (Entity ent in openTag.Entities)
+                {
+                    if (openTag.Entities.Count() > 3)
+                        tooManyEntities = true;
+                    if (openTag.Entities.Count() > 0)
+                        noEntities = false;
+                    if (ent.Roles.Contains("tagCreator"))
                     {
-                        tbtn_tagCreator1.IsEnabled=true;
+                        entName = tb_entityName1;
+                        entRegid = tb_entityRegid1;
+                        swCreator = tbtn_softwareCreator1;
+                        licensor = tbtn_licensor1;
+                        tagCreator = tbtn_tagCreator1;
+
+                        if (tagCreatorDefined)
+                        {
+                            MessageBox.Show("Error - SWID Tag contains multiple Entity values with the role of tagCreator", "SWID Tag Generator", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+                        tagCreatorDefined = true;  // Note - this will be used to identify if tagCreator has already been identified in a subsequent Entity
+                    }
+                    else
+                    {
+
+                        if (entityOptionNumber == 2)
+                        {
+                            entName = tb_entityName2;
+                            entRegid = tb_entityRegid2;
+                            swCreator = tbtn_softwareCreator2;
+                            licensor = tbtn_licensor2;
+                            Entity2.IsExpanded = true;
+                            entityOptionNumber++;
+                        }
+                        else
+                        {
+                            entName = tb_entityName3;
+                            entRegid = tb_entityRegid3;
+                            swCreator = tbtn_softwareCreator3;
+                            licensor = tbtn_licensor3;
+                            Entity3.IsExpanded = true;
+                            entityOptionNumber++;
+                        }
                     }
 
-                    
-                    // you can access metdata as a dictionary
-                    //var str1 = entity["tagCreator"];
-                    //tbtn_tagCreator1.Checked = true;
-                    // or use known properties directly
-                    //var str = meta.edition;
+
+                    entName.Text = ent.Name;
+                    entRegid.Text = ent.RegId;
+
+                    if (ent.Roles.Contains("softwareCreator"))
+                    {
+                        if (softwareCreatorDefined)
+                        {
+                            MessageBox.Show("Error - SWID Tag contains multiple Entity values with the role of softwareCreator", "SWID Tag Generator", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+                        else
+                        {
+                            swCreator.IsChecked = true;
+                            softwareCreatorDefined = true;
+                        }
+                    }
+                    if (ent.Roles.Contains("licensor"))
+                    {
+                        if (licensorDefined)
+                        {
+                            MessageBox.Show("Error - SWID Tag contains multiple Entity values with the role of licensor", "SWID Tag Generator", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+                        else
+                        {
+                            licensor.IsChecked = true;
+                            licensorDefined = true;
+                        }
+                    }
                 }
-
-
-
+                if (tooManyEntities)
+                    warningMessage = "    - There are more than 3 Entities defined in the SWID Tag\r\n";
+                if (noEntities)
+                    warningMessage = warningMessage + "    - There were no Entities defined in the SWID Tag\r\n";
+                if (!tagCreatorDefined)
+                    warningMessage = warningMessage + "    - This SWID tag has no tagCreator entity defined\r\n";
+                if (warningMessage != "")
+                {
+                    warningMessage = "There are some issues with how this application will display data from this tag including: \r\n\r\n" + warningMessage;
+                    MessageBox.Show(warningMessage, "SWID Tag Generator", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
-
-
         }
+
+
+
         private void exit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -340,3 +438,4 @@ namespace WpfApplication2
         }
     }
 }
+
