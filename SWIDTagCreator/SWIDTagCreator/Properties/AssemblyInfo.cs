@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyTitle("SWIDTagCreator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("TagVault.org")]
 [assembly: AssemblyProduct("SWIDTagCreator")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
