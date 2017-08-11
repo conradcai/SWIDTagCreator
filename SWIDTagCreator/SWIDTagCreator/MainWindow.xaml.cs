@@ -94,6 +94,8 @@ namespace WpfApplication2
 
             swidTag.AddMeta().Generator = "TagVault.org Tag Creator";
 
+        
+            swidTag.XmlLang=tb_defaultLang.Text;
             swidTag.Name = tb_prdName.Text;
             swidTag.Version = tb_version.Text;
             swidTag.VersionScheme = cb_versionScheme.Text;
@@ -328,6 +330,7 @@ namespace WpfApplication2
                 tb_version.Text = openTag.Version;
                 cb_versionScheme.Text = openTag.VersionScheme;
                 tb_tagId.Text = openTag.TagId;
+                tb_defaultLang.Text = openTag.XmlLang;
 
                 meta = openTag.Meta.FirstOrDefault(each => each["colloquialVersion"] != null);
                 if (meta != null)
@@ -448,6 +451,11 @@ namespace WpfApplication2
         private void Expander_KeyDown(object sender, KeyEventArgs e)
         {
 
+        }
+
+        private void tb_defaultLang_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
         }
     }
 }

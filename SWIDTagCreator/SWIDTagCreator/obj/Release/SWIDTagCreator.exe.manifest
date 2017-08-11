@@ -127,14 +127,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SWIDTagCreator.exe" size="74672">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SWIDTagCreator.exe" size="76208">
       <assemblyIdentity name="SWIDTagCreator" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>U5U2duUEfjsDxbOxBX/ejfEDcvu4+m50x6dmVJWZLaI=</dsig:DigestValue>
+        <dsig:DigestValue>hd8jv/2my5/kXXbqAyeLE9ohV9i/gD0sPHBimV3hDf0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -127,14 +127,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SWIDTagCreator.exe" size="74672">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SWIDTagCreator.exe" size="76208">
       <assemblyIdentity name="SWIDTagCreator" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>YDMYIzlX9ZpHCMsRRyjsQLw6uCFtsTfjFDhl7D6nOj8=</dsig:DigestValue>
+        <dsig:DigestValue>hd8jv/2my5/kXXbqAyeLE9ohV9i/gD0sPHBimV3hDf0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -145,6 +145,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>d5h7dtFJ3bPudouTPgb92OzOJE9SoQ9wqzcucW0KJzM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="swidtag\TagVault.org-SWID_Tag_Creator-V1.0.0.6-2017-07-14T162230.swidtag" size="440">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>p8SVTC9Y+zcIlB4dpJzaS7i0nBAEZN5mg1brrnYaWsw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="SWIDTagCreator.exe.config" size="542">

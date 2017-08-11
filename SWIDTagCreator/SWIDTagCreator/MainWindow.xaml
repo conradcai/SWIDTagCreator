@@ -18,8 +18,8 @@
 
             </Menu>
         </DockPanel>
-        <Label x:Name="label" Content="Product Name" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.016,0.173"/>
-        <TextBox x:Name="tb_prdName" HorizontalAlignment="Left"  Margin="123,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" ToolTipService.ShowDuration="10000">
+        <Label x:Name="label" Content="Product Name" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.016,0.173"/>
+        <TextBox x:Name="tb_prdName" HorizontalAlignment="Left"  Margin="123,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" ToolTipService.ShowDuration="10000">
             <TextBox.ToolTip >
                 <StackPanel>
                     <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Name</TextBlock>
@@ -36,8 +36,8 @@
 
             </TextBox.ToolTip>
         </TextBox>
-        <Label x:Name="label1" Content="Product Edition" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_edition" HorizontalAlignment="Left"  Margin="123,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" RenderTransformOrigin="0.179,-0.441" ToolTipService.ShowDuration="10000">
+        <Label x:Name="label1" Content="Product Edition" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_edition" HorizontalAlignment="Left"  Margin="123,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" RenderTransformOrigin="0.179,-0.441" ToolTipService.ShowDuration="10000">
             <TextBox.ToolTip >
                 <StackPanel>
                     <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Edition</TextBlock>
@@ -54,9 +54,9 @@
 
             </TextBox.ToolTip>
         </TextBox>
-        <Label x:Name="label4" Content="Colloquial Version" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label4" Content="Colloquial Version" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top"/>
 
-        <TextBox x:Name="tb_Colloquial" HorizontalAlignment="Left"  Margin="123,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" RenderTransformOrigin="0.5,0.522" ToolTipService.ShowDuration="15000">
+        <TextBox x:Name="tb_Colloquial" HorizontalAlignment="Left"  Margin="123,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" RenderTransformOrigin="0.5,0.522" ToolTipService.ShowDuration="15000">
             <TextBox.ToolTip >
                 <StackPanel>
                     <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Colloquial Version</TextBlock>
@@ -75,8 +75,8 @@
 
         </TextBox>
 
-        <Label x:Name="Version" Content="Product Version" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_version" HorizontalAlignment="Left"  Margin="123,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"  ToolTipService.ShowDuration="10000">
+        <Label x:Name="Version" Content="Product Version" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_version" HorizontalAlignment="Left"  Margin="123,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"  ToolTipService.ShowDuration="10000">
             <TextBox.ToolTip >
                 <StackPanel>
                     <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Version</TextBlock>
@@ -93,8 +93,8 @@
 
             </TextBox.ToolTip>
         </TextBox>
-        <Label x:Name="label2" Content="Version Scheme" HorizontalAlignment="Left" Margin="249,115,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cb_versionScheme" HorizontalAlignment="Left" Margin="348,117,0,0" VerticalAlignment="Top" Width="149" SelectedIndex="2"  ToolTipService.ShowDuration="10000">
+        <Label x:Name="label2" Content="Version Scheme" HorizontalAlignment="Left" Margin="249,135,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_versionScheme" HorizontalAlignment="Left" Margin="348,137,0,0" VerticalAlignment="Top" Width="149" SelectedIndex="2"  ToolTipService.ShowDuration="10000">
             <ComboBox.ToolTip >
                 <StackPanel>
                     <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Version Scheme</TextBlock>
@@ -117,8 +117,8 @@
             <ComboBoxItem Content="semver" IsEnabled="False"/>
             <ComboBoxItem Content="unknown"/>
         </ComboBox>
-        <Label x:Name="label3" Content="TagID" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.586,0.057"/>
-        <TextBox x:Name="tb_tagId"  Margin="123,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="268" ToolTipService.ShowDuration="30000">
+        <Label x:Name="label3" Content="TagID" HorizontalAlignment="Left" Margin="10,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.586,0.057"/>
+        <TextBox x:Name="tb_tagId"  Margin="123,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="268" ToolTipService.ShowDuration="30000">
             <TextBox.ToolTip >
                 <StackPanel>
                     <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">TagID</TextBlock>
@@ -142,7 +142,7 @@ regid + productName + version + edition + revision + …</TextBlock>
             </TextBox.ToolTip>
         </TextBox>
 
-        <Button x:Name="btnCreateGUID" Content="Generate GUID" HorizontalAlignment="Left" Margin="404,149,0,0" VerticalAlignment="Top" Width="93" Click="btnCreateGUID_Click" Height="24"/>
+        <Button x:Name="btnCreateGUID" Content="Generate GUID" HorizontalAlignment="Left" Margin="404,169,0,0" VerticalAlignment="Top" Width="93" Click="btnCreateGUID_Click" Height="24"/>
 
         <!--**** Entity Information is defined below **** -->
 
@@ -335,6 +335,24 @@ Note 2 to entry: This part of ISO/IEC 19770 uses the terms software creator (3.3
         </GroupBox>-->
 
         <Button x:Name="btnCreate" Content="Create SWID" HorizontalAlignment="Left" Margin="422,503,0,0" VerticalAlignment="Top" Width="75" Click="saveTag_Click" IsDefault="True"/>
+        <Label x:Name="label_Copy" Content="Default Tag Lang" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.016,0.173" Width="105"/>
+        <TextBox x:Name="tb_defaultLang" HorizontalAlignment="Left"  Margin="123,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="77" ToolTipService.ShowDuration="10000" TextChanged="tb_defaultLang_TextChanged" Text="EN">
+            <TextBox.ToolTip >
+                <StackPanel>
+                    <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5"><Run Text="Name"/></TextBlock>
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Run Text="This should be the default Language used for the SWID tag"/></TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold><Run Text="ISO Definition:"/></Bold><Run Text="ISO allows attributes to have multiple XML:Lang attributes, but the NIST-IR 8060 requires a default.  This utility currently only allows the default Lang to be defined."/></TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <TextBlock Width="300" TextWrapping="wrapwithoverflow"><Bold><Run Text="NIST-IR Definition:"/></Bold><Run Text="The &lt;SoftwareIdentity&gt; element MUST specify an @xml:lang attribute with a non-blank value to indicate the default human language used for expressing all language-dependent attribute values."/></TextBlock>
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                    <WrapPanel>
+                        <TextBlock FontStyle="Italic"><Run Text="See ISO/IEC 19770-2 or NIST-IR 8060 for more information"/></TextBlock>
+                    </WrapPanel>
+                </StackPanel>
+
+            </TextBox.ToolTip>
+        </TextBox>
 
 
     </Grid>
