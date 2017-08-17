@@ -8,10 +8,11 @@
         Title="SWID Creator" Height="563.6" Width="519.326">
     <Grid Margin="0,1,4,-1">
         <DockPanel Margin="0,0,0,510">
-            <Menu DockPanel.Dock="Top" Height="16" Margin="0,0,-6,0">
+            <Menu DockPanel.Dock="Top" Height="18" Margin="0,0,0,0">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Open" Click="btnFileOpen_Click"/>
                     <MenuItem Header="_Save" Click="saveTag_Click"/>
+                    <MenuItem Header="_About" Click="about_Click"/>
                     <MenuItem Header="E_xit" Click="exit_Click"/>
                 </MenuItem>
 

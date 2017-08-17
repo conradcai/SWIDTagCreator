@@ -1,3 +1,4 @@
+D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\bin\Release\swidtag\TagVault.org-SWID_Tag_Creator-V1.0.0.11-2017-08-16T122000.swidtag
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\bin\Release\SWIDTagCreator.exe.config
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\bin\Release\SWIDTagCreator.exe.manifest
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\bin\Release\SWIDTagCreator.application
@@ -17,6 +18,7 @@ D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCre
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\bin\Release\Newtonsoft.Json.xml
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Release\MainWindow.g.cs
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Release\App.g.cs
+D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Release\SWIDTagCreator_Content.g.cs
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Release\SWIDTagCreator_MarkupCompile.cache
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Release\SWIDTagCreator_MarkupCompile.lref
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Release\MainWindow.baml
@@ -27,6 +29,4 @@ D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCre
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Release\SWIDTagCreator.application
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Release\SWIDTagCreator.exe
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Release\SWIDTagCreator.pdb
-D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\bin\Release\swidtag\TagVault.org-SWID_Tag_Creator-V1.0.0.6-2017-07-14T162230.swidtag
 D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Release\SWIDTagCreator.csprojResolveAssemblyReference.cache
-D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Release\SWIDTagCreator_Content.g.cs

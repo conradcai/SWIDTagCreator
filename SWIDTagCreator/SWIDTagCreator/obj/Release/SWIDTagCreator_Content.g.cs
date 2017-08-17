@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("swidtag/tagvault.org-swid_tag_creator-v1.0.0.6-2017-07-14t162230.swidtag")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("swidtag/tagvault.org-swid_tag_creator-v1.0.0.11-2017-08-16t122000.swidtag")]
 
 

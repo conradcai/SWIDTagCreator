@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,7 +28,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
-
+using System.Xml;
+using System.Xml.Linq;
 namespace WpfApplication2
 {
     /// <summary>
@@ -47,6 +49,10 @@ namespace WpfApplication2
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void about_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("SWID Tag Generator \n Version: 1.0.0.11","SWID Tag Generator", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void saveTag_Click(object sender, RoutedEventArgs e)
         {
@@ -164,6 +170,7 @@ namespace WpfApplication2
             tagToWrite = tagToWrite.Replace(" xmlns:p2=\"http://standards.iso.org/iso/19770/-2/2015/schema.xsd\" ", " ");
             tagToWrite = tagToWrite.Replace("standalone=\"yes\"", "");
             tagToWrite = tagToWrite.Replace("utf-16", "utf-8");
+            tagToWrite = tagToWrite.Replace("lang", "xml:lang");
 
             SaveFileDialog saveFileDialog = new SaveFileDialog()
             {
@@ -331,6 +338,19 @@ namespace WpfApplication2
                 cb_versionScheme.Text = openTag.VersionScheme;
                 tb_tagId.Text = openTag.TagId;
                 tb_defaultLang.Text = openTag.XmlLang;
+
+                //tb_defaultLang.Text = openTag.XmlLang;  //XmlLang attribute is not working from the SWID Tag Library
+
+
+                if (XMLData.Contains("lang"))
+                {
+                    int langAttributeStart = XMLData.IndexOf("lang");
+                    int langValueStart = XMLData.IndexOf("\"", langAttributeStart) + 1;
+                    int langValueEnd = XMLData.IndexOf("\"", langValueStart) - 1;
+                    int langLen = langValueEnd - langValueStart + 1;
+
+                    tb_defaultLang.Text = XMLData.Substring(langValueStart, langLen);
+                }
 
                 meta = openTag.Meta.FirstOrDefault(each => each["colloquialVersion"] != null);
                 if (meta != null)

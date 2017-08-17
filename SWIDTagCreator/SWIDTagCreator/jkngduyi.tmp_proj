@@ -28,8 +28,8 @@
     <SupportUrl>http://www.tagvault.org</SupportUrl>
     <ProductName>SWID Tag Creator</ProductName>
     <PublisherName>TagVault.org</PublisherName>
-    <ApplicationRevision>11</ApplicationRevision>
-    <ApplicationVersion>1.0.0.11</ApplicationVersion>
+    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationVersion>1.0.0.6</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -68,66 +68,15 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>swid_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FearTheCowboy.Extensions.Collections, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FearTheCowboy.Extensions.Collections.2.0.0-beta-10145\lib\net45\FearTheCowboy.Extensions.Collections.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FearTheCowboy.Extensions.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FearTheCowboy.Extensions.Core.2.0.0-beta-10145\lib\net45\FearTheCowboy.Extensions.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FearTheCowboy.Extensions.Linq, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FearTheCowboy.Extensions.Linq.2.0.0-beta-10145\lib\net45\FearTheCowboy.Extensions.Linq.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FearTheCowboy.Iso19770, Version=1.0.0.67, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FearTheCowboy.Iso19770.1.1.0-beta-10145\lib\net45\FearTheCowboy.Iso19770.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="JsonLD, Version=1.0.4.0, Culture=neutral, PublicKeyToken=2e465378e3b1a8dd, processorArchitecture=MSIL">
-      <HintPath>..\packages\json-ld.net.1.0.4\lib\net40-Client\JsonLD.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="SgmlReaderDll, Version=1.8.11.0, Culture=neutral, PublicKeyToken=46b2db9ca481831b, processorArchitecture=MSIL">
-      <HintPath>..\packages\SgmlReader.1.8.11\lib\4.0\SgmlReaderDll.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -162,7 +111,7 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="SWIDTagCreator_TemporaryKey.pfx" />
-    <Content Include="swidtag\TagVault.org-SWID_Tag_Creator-V1.0.0.11-2017-08-16T122000.swidtag">
+    <Content Include="swidtag\TagVault.org-SWID_Tag_Creator-V1.0.0.6-2017-07-14T162230.swidtag">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -183,7 +132,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="swid_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -193,4 +141,31 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <ReferencePath Include="D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\packages\FearTheCowboy.Extensions.Collections.2.0.0-beta-10145\lib\net45\FearTheCowboy.Extensions.Collections.dll" />
+    <ReferencePath Include="D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\packages\FearTheCowboy.Extensions.Core.2.0.0-beta-10145\lib\net45\FearTheCowboy.Extensions.Core.dll" />
+    <ReferencePath Include="D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\packages\FearTheCowboy.Extensions.Linq.2.0.0-beta-10145\lib\net45\FearTheCowboy.Extensions.Linq.dll" />
+    <ReferencePath Include="D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\packages\FearTheCowboy.Iso19770.1.1.0-beta-10145\lib\net45\FearTheCowboy.Iso19770.dll" />
+    <ReferencePath Include="D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\packages\json-ld.net.1.0.4\lib\net40-Client\JsonLD.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Microsoft.CSharp.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\mscorlib.dll" />
+    <ReferencePath Include="D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\PresentationFramework.dll" />
+    <ReferencePath Include="D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\packages\SgmlReader.1.8.11\lib\4.0\SgmlReaderDll.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.DataSetExtensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Net.Http.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\WindowsBase.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Release\MainWindow.g.cs" />
+    <Compile Include="D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Release\App.g.cs" />
+    <Compile Include="D:\Dropbox\TagVault\src\WPF Development\SWIDTagCreator\SWIDTagCreator\SWIDTagCreator\obj\Release\SWIDTagCreator_Content.g.cs" />
+  </ItemGroup>
 </Project>
